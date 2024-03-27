@@ -270,12 +270,12 @@ function showResult() {
     submitButton.style.display = "none";
     
     let message = "";
-    if (score >= quiz.length * 0.8) {
-        message = "Congratulations! You scored high. You're really smart!";
-    } else if (score >= quiz.length * 0.6) {
-        message = "Good job! You have a decent score.";
+    if (score >= quiz.length * 0.9) {
+        message = "Congratulations! You scored high. You are probably gifted.";
+    } else if (score >= quiz.length * 0.4) {
+        message = "You are average! Your score was in the range of an average person's capabilities.";
     } else {
-        message = "You need to study more. Try again!";
+        message = "You need help. You scored awfully low.";
     }
     resultElement.textContent = message;
 }
