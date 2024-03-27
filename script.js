@@ -293,4 +293,6 @@ function displayQuestion() {
     });
 }
 
-displayQuestion();
+document.addEventListener('DOMContentLoaded', function() {
+    displayQuestion();
+});
