@@ -204,7 +204,7 @@ const quiz = [
         options: ["True","False"],
         answer: "False"
     }
-];
+]
 
 const scoreMessages = {
     100: "You are very smart!",
@@ -233,31 +233,64 @@ function calculateScore() {
     }
 }
 
-function displayQuestion(index) {
-    const questionElement = document.getElementById('question');
-    const optionsElement = document.getElementById('options');
-    
-    questionElement.textContent = quiz[index].question;
-    optionsElement.innerHTML = '';
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
-    const shuffledOptions = [...quiz[index].options];
-    shuffle(shuffledOptions);
+function displayQuestion() {
+    const form = document.getElementById('quizForm');
+    form.innerHTML = '';
 
-    shuffledOptions.forEach(option => {
-        const button = document.createElement('button');
-        button.textContent = option;
-        button.classList.add('option');
-        button.addEventListener('click', () => {
-            checkAnswer(option, quiz[index].answer);
-            if (index < quiz.length - 1) {
-                displayQuestion(index + 1);
-            } else {
-                const scoreMessage = calculateScore();
-                alert(scoreMessage);
-            }
+    shuffle(quiz);
+
+    quiz.forEach((question, index) => {
+        const fieldset = document.createElement('fieldset');
+        fieldset.classList.add('question-fieldset');
+
+        const legend = document.createElement('legend');
+        legend.textContent = `Question ${index + 1}`;
+        fieldset.appendChild(legend);
+
+        const questionElement = document.createElement('div');
+        questionElement.textContent = question.question;
+        fieldset.appendChild(questionElement);
+
+        const options = shuffle([...question.options]);
+        options.forEach(option => {
+            const label = document.createElement('label');
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = `question${index}`;
+            input.value = option;
+            input.classList.add('option-input');
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(option));
+            fieldset.appendChild(label);
         });
-        optionsElement.appendChild(button);
+
+        form.appendChild(fieldset);
+    });
+
+    const submitButton = document.createElement('button');
+    submitButton.textContent = 'Submit';
+    submitButton.type = 'submit';
+    submitButton.classList.add('submit-button');
+    form.appendChild(submitButton);
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        let index = 0;
+        for (let entry of formData.entries()) {
+            checkAnswer(entry[1], quiz[index].answer);
+            index++;
+        }
+        const scoreMessage = calculateScore();
+        alert(scoreMessage);
     });
 }
-// Display the first question
-displayQuestion(0);
+
+displayQuestion();
