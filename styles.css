@@ -39,6 +39,7 @@ h1 {
     background-color: #555;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    color: white;
 }
 
 .option:hover {
