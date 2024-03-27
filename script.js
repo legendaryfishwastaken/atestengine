@@ -204,7 +204,8 @@ const quiz = [
         options: ["True","False"],
         answer: "False"
     }
-]
+];
+
 const scoreMessages = {
     100: "You are very smart!",
     90: "Excellent!",
@@ -229,13 +230,6 @@ function calculateScore() {
         if (percentage >= parseInt(key)) {
             return scoreMessages[key];
         }
-    }
-}
-
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
     }
 }
 
