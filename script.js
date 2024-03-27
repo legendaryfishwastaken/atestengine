@@ -294,3 +294,5 @@ function displayQuestion() {
 }
 
 displayQuestion();
+
+displayQuestion();
