@@ -206,93 +206,60 @@ const quiz = [
     }
 ];
 
-const scoreMessages = {
-    100: "You are very smart!",
-    90: "Excellent!",
-    80: "Great job!",
-    70: "Good effort!",
-    60: "Not bad!",
-    50: "Keep practicing!",
-    0: "You can do better!"
-};
+const questionElement = document.getElementById("question");
+const optionsElement = document.getElementById("options");
+const submitButton = document.getElementById("submit");
+const resultElement = document.getElementById("result");
 
-let score = 0;
+let currentQuestionIndex = 0;
 
-function checkAnswer(selectedAnswer, correctAnswer) {
-    if (selectedAnswer === correctAnswer) {
-        score++;
-    }
-}
+shuffleQuestions();
+loadQuestion();
 
-function calculateScore() {
-    const percentage = (score / quiz.length) * 100;
-    for (let key in scoreMessages) {
-        if (percentage >= parseInt(key)) {
-            return scoreMessages[key];
-        }
-    }
-}
-
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+function shuffleQuestions() {
+    for (let i = quiz.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        [quiz[i], quiz[j]] = [quiz[j], quiz[i]];
     }
 }
 
-function displayQuestion() {
-    const form = document.getElementById('quizForm');
-    form.innerHTML = '';
+function loadQuestion() {
+    const currentQuestion = quiz[currentQuestionIndex];
+    questionElement.textContent = currentQuestion.question;
+    optionsElement.innerHTML = "";
 
-    shuffle(quiz);
-
-    quiz.forEach((question, index) => {
-        const fieldset = document.createElement('fieldset');
-        fieldset.classList.add('question-fieldset');
-
-        const legend = document.createElement('legend');
-        legend.textContent = `Question ${index + 1}`;
-        fieldset.appendChild(legend);
-
-        const questionElement = document.createElement('div');
-        questionElement.textContent = question.question;
-        fieldset.appendChild(questionElement);
-
-        const options = shuffle([...question.options]);
-        options.forEach(option => {
-            const label = document.createElement('label');
-            const input = document.createElement('input');
-            input.type = 'radio';
-            input.name = `question${index}`;
-            input.value = option;
-            input.classList.add('option-input');
-            label.appendChild(input);
-            label.appendChild(document.createTextNode(option));
-            fieldset.appendChild(label);
-        });
-
-        form.appendChild(fieldset);
-    });
-
-    const submitButton = document.createElement('button');
-    submitButton.textContent = 'Submit';
-    submitButton.type = 'submit';
-    submitButton.classList.add('submit-button');
-    form.appendChild(submitButton);
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const formData = new FormData(form);
-        let index = 0;
-        for (let entry of formData.entries()) {
-            checkAnswer(entry[1], quiz[index].answer);
-            index++;
-        }
-        const scoreMessage = calculateScore();
-        alert(scoreMessage);
+    currentQuestion.options.forEach((option, index) => {
+        const optionButton = document.createElement("button");
+        optionButton.textContent = option;
+        optionButton.classList.add("option");
+        optionButton.addEventListener("click", () => selectOption(optionButton));
+        optionsElement.appendChild(optionButton);
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    displayQuestion();
+function selectOption(optionButton) {
+    const allOptions = optionsElement.querySelectorAll(".option");
+    allOptions.forEach((opt) => {
+        opt.classList.remove("selected");
+    });
+
+    optionButton.classList.add("selected");
+    submitButton.disabled = false;
+}
+
+submitButton.addEventListener("click", () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quiz.length) {
+        loadQuestion();
+        submitButton.disabled = true;
+    } else {
+        showResult();
+    }
 });
+
+function showResult() {
+    questionElement.textContent = "";
+    optionsElement.innerHTML = "";
+    submitButton.style.display = "none";
+    resultElement.textContent = "Quiz completed!"; // You can customize this message based on the score
+}
