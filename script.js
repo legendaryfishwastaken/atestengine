@@ -258,7 +258,11 @@ function displayQuestion(index) {
         });
         optionsElement.appendChild(button);
     });
-}
 
+    const answerElement = document.createElement('div');
+    answerElement.textContent = "Correct answer: " + quiz[index].answer;
+    answerElement.classList.add('answer');
+    optionsElement.appendChild(answerElement);
+}
 // Display the first question
 displayQuestion(0);
