@@ -15,8 +15,9 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
+h1 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 #question {
@@ -24,9 +25,13 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
+#options {
+    display: flex;
+    flex-direction: column;
+}
+
 .option {
     display: block;
-    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -38,10 +43,6 @@ h1, h2 {
 
 .option:hover {
     background-color: #777;
-}
-
-.option.selected {
-    background-color: #007bff;
 }
 
 #submit {
@@ -59,9 +60,4 @@ h1, h2 {
 
 #submit:hover {
     background-color: #0056b3;
-}
-
-#result {
-    text-align: center;
-    font-weight: bold;
 }
