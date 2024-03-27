@@ -188,7 +188,22 @@ const quiz = [
         question: "What is 24 divided by 6?",
         options: ["3", "4", "5", "6"],
         answer: "4"
-    }
+    },
+    {
+        question: "What is the capital of Japan?",
+        options: ["Tokyo", "Beijing", "Seoul", "Bangkok"],
+        answer: "Tokyo"
+    },
+    {
+        question: "What gets wet while drying?",
+        options: ["Towel", "Umbrella", "Sun", "Rain"],
+        answer: "Towel"
+    },
+    {
+        question: "If all Bloops are Razzies, and some Razzies are Lazzies, then some Bloops are definitely Lazzies.",
+        options: ["True","False"],
+        answer: "False"
+    },
 
     const scoreMessages = {
     100: "You are very smart!",
