@@ -200,9 +200,9 @@ const quiz = [
         answer: "Towel"
     },
     {
-        question: "If all Bloops are Razzies, and some Razzies are Lazzies, then some Bloops are definitely Lazzies.",
+        question: "If all Bloops are Razzies, and all Razzies are Lazzies, then all Bloops are definitely Lazzies.",
         options: ["True","False"],
-        answer: "False"
+        answer: "True"
     }
 ];
 
