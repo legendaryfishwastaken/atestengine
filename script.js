@@ -203,9 +203,9 @@ const quiz = [
         question: "If all Bloops are Razzies, and some Razzies are Lazzies, then some Bloops are definitely Lazzies.",
         options: ["True","False"],
         answer: "False"
-    },
-
-    const scoreMessages = {
+    }
+]
+const scoreMessages = {
     100: "You are very smart!",
     90: "Excellent!",
     80: "Great job!",
@@ -231,6 +231,7 @@ function calculateScore() {
         }
     }
 }
+
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
