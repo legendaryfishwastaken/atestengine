@@ -1,6 +1,3 @@
-Certainly! Here's the full JavaScript code with 50 questions excluding "What is the capital of" questions:
-
-```javascript
 const quiz = [
     {
         question: "What is 2 + 2?",
