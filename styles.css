@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #1f1f1f;
-    color: #fff;
+    color: #ffffff;
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,51 +12,33 @@ body {
 
 .container {
     max-width: 600px;
-    margin: auto;
     text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #333;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    background-color: #343a40;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button.option:hover {
+    background-image: linear-gradient(45deg, #ff0f7b, #008eff);
+}
+
+button:focus {
+    outline: none;
 }
 
 #question {
     font-size: 20px;
     margin-bottom: 20px;
-}
-
-.options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-.option {
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #444;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.option:hover {
-    background-color: #555;
-}
-
-.option:active {
-    background-color: #666;
-}
-
-option:focus {
-    outline: none;
-}
-
-.alert {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #555;
 }
