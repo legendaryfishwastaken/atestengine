@@ -212,6 +212,7 @@ const submitButton = document.getElementById("submit");
 const resultElement = document.getElementById("result");
 
 let currentQuestionIndex = 0;
+let score = 0;
 
 shuffleQuestions();
 loadQuestion();
@@ -232,12 +233,12 @@ function loadQuestion() {
         const optionButton = document.createElement("button");
         optionButton.textContent = option;
         optionButton.classList.add("option");
-        optionButton.addEventListener("click", () => selectOption(optionButton));
+        optionButton.addEventListener("click", () => selectOption(optionButton, option));
         optionsElement.appendChild(optionButton);
     });
 }
 
-function selectOption(optionButton) {
+function selectOption(optionButton, selectedAnswer) {
     const allOptions = optionsElement.querySelectorAll(".option");
     allOptions.forEach((opt) => {
         opt.classList.remove("selected");
@@ -245,6 +246,12 @@ function selectOption(optionButton) {
 
     optionButton.classList.add("selected");
     submitButton.disabled = false;
+
+    // Check answer
+    const currentQuestion = quiz[currentQuestionIndex];
+    if (selectedAnswer === currentQuestion.answer) {
+        score++;
+    }
 }
 
 submitButton.addEventListener("click", () => {
@@ -261,5 +268,14 @@ function showResult() {
     questionElement.textContent = "";
     optionsElement.innerHTML = "";
     submitButton.style.display = "none";
-    resultElement.textContent = "Quiz completed!"; // You can customize this message based on the score
+    
+    let message = "";
+    if (score >= quiz.length * 0.8) {
+        message = "Congratulations! You scored high. You're really smart!";
+    } else if (score >= quiz.length * 0.6) {
+        message = "Good job! You have a decent score.";
+    } else {
+        message = "You need to study more. Try again!";
+    }
+    resultElement.textContent = message;
 }
