@@ -204,7 +204,7 @@ const quiz = [
         options: ["True","False"],
         answer: "False"
     }
-]
+];
 
 const scoreMessages = {
     100: "You are very smart!",
@@ -292,7 +292,5 @@ function displayQuestion() {
         alert(scoreMessage);
     });
 }
-
-displayQuestion();
 
 displayQuestion();
