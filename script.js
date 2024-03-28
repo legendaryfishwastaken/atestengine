@@ -1,8 +1,8 @@
 const quiz = [
     {
-        question: "What is 2 + 2?",
-        options: ["4", "5", "6", "7"],
-        answer: "4"
+        question: "4, 9, 16, 25, 36, ?, 64",
+        options: ["49", "94", "42", "43"],
+        answer: "49"
     },
     {
         question: "What is 10 * 5?",
