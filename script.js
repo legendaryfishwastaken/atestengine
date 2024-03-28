@@ -7,7 +7,7 @@ const quiz = [
     {
         question: "Which four letter word can be attached to the beginning of the following words to form five longer words? \n AGE, WIDTH, IT, STAND, WAGON",
         options: ["BAND", "SAND", "ANTI", "HOST"],
-        answer: "50"
+        answer: "BAND"
     },
     {
         question: "What is the number that is one more than one-tenth of one-fifth of one-half of 4,000?",
