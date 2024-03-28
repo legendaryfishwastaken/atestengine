@@ -10,9 +10,9 @@ const quiz = [
         answer: "50"
     },
     {
-        question: "What is the square root of 16?",
-        options: ["2", "4", "8", "16"],
-        answer: "4"
+        question: "What is the number that is one more than one-tenth of one-fifth of one-half of 4,000?",
+        options: ["41", "42", "40", "402"],
+        answer: "41"
     },
     {
         question: "What is the chemical symbol for water?",
