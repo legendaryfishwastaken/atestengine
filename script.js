@@ -5,7 +5,7 @@ const quiz = [
         answer: "49"
     },
     {
-        question: "What is 10 * 5?",
+        question: "Which four letter word can be attached to the beginning of the following words to form five longer words? \n AGE, WIDTH, IT, STAND, WAGON",
         options: ["30", "40", "50", "60"],
         answer: "50"
     },
