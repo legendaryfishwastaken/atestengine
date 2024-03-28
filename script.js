@@ -6,7 +6,7 @@ const quiz = [
     },
     {
         question: "Which four letter word can be attached to the beginning of the following words to form five longer words? \n AGE, WIDTH, IT, STAND, WAGON",
-        options: ["30", "40", "50", "60"],
+        options: ["BAND", "SAND", "ANTI", "HOST"],
         answer: "50"
     },
     {
