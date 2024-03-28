@@ -8,4 +8,4 @@ This test may not be accurate. This is just a fun thing to play with. Don't use 
 Currently incomplete. Expect bugs.
 
 ## Credits
-Thanks to @cryoalchemist
+Thanks to [@cryoalchemist](https://www.github.com/cryoalchemist) for helping me make this project.
