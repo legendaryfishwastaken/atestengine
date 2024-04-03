@@ -6,6 +6,3 @@ This test may not be accurate. This is just a fun thing to play with. Don't use 
 
 ## Project Status
 Currently incomplete. Expect bugs.
-
-## Credits
-Thanks to [@cryoalchemist](https://www.github.com/cryoalchemist) for helping me make this project.
