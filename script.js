@@ -35,8 +35,8 @@ const quiz = [
         answer: "100°C"
     },
     {
-        question: "What is 25 divided by 5?",
-        options: ["2", "5", "10", "15"],
+        question: "What is the opposite of the antonym for the word used to describe someone who isn't very smart.",
+        options: ["Genius", "Smarty Pants", "Civilian", "Idiot"],
         answer: "5"
     },
     {
